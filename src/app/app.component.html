@@ -1,0 +1,21 @@
+<div>
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+        <a href="/lembretes" class="navbar-brand"><img src="../assets/logo.jpeg" width="50" height="50"></a>
+        <div class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a routerLink="lembretes" class="nav-link">Lembretes</a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="adicionar" class="nav-link">Adicionar</a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="sign-in" class="nav-link" (click)="authService.SignOut()">Sair</a>
+            </li>
+        </div>
+    </nav>
+
+    <div class="container mt-3">
+        <h2>{{ title }}</h2>
+        <router-outlet></router-outlet>
+    </div>
+</div>

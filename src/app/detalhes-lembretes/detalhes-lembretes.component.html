@@ -1,0 +1,25 @@
+<div *ngIf="currentLembrete" class="edit-form">
+    <h4>Lembrete</h4>
+    <form>
+        <div class="form-group">
+            <label for="lembrete"></label>
+            <input type="text" class="form-control" id="lembrete" [(ngModel)]="currentLembrete.lembrete"
+                name="lembrete" />
+        </div>
+
+
+    </form>
+    <button class="badge badge-danger mr-2" (click)="deleteLembrete()">
+        Deletar
+    </button>
+
+    <button type="submit" class="badge badge-success" (click)="updateLembrete()">
+        Atualizar
+    </button>
+    <p>{{ message }}</p>
+</div>
+
+<div *ngIf="!currentLembrete">
+    <br />
+    <p>Não é possivel acessar este Lembrete...</p>
+</div>

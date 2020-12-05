@@ -1,0 +1,17 @@
+<div class="list row">
+    <div class="col-md-6">
+        <h4>Lista de Lembretes</h4>
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let lembrete of lembretes; let i = index"
+                [class.active]="i == currentIndex" (click)="setActiveLembrete(lembrete, i)">
+                {{ lembrete.lembrete }} <br> Data: {{ lembrete.dataLemb }}
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <div *ngIf="currentLembrete">
+            <app-detalhes-lembretes (refreshList)="refreshList()" [lembrete]="currentLembrete">
+            </app-detalhes-lembretes>
+        </div>
+    </div>
+</div>
