@@ -1,5 +1,5 @@
 <div *ngIf="currentLembrete" class="edit-form">
-    <h4>Lembrete</h4>
+    <h4 class="escrito">Lembrete</h4>
     <form>
         <div class="form-group">
             <label for="lembrete"></label>
@@ -9,11 +9,11 @@
 
 
     </form>
-    <button class="badge badge-danger mr-2" (click)="deleteLembrete()">
+    <button mat-raised-button color="warn" (click)="deleteLembrete()">
         Deletar
     </button>
 
-    <button type="submit" class="badge badge-success" (click)="updateLembrete()">
+    <button mat-raised-button color="accent" type="submit" (click)="updateLembrete()">
         Atualizar
     </button>
     <p>{{ message }}</p>

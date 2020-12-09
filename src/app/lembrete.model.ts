@@ -1,6 +1,6 @@
 export class Lembrete {
   id: string;
   lembrete: string;
-  dataLemb: string;
+  dataLemb: any;
   uid: string;
 }
