@@ -20,19 +20,16 @@ export class NovoLembreteComponent implements OnInit {
   lembrete: Lembrete = new Lembrete();
   constructor(
     private firebaseService: FirebaseService,
-    private AuthService: AuthService
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {}
 
   salvarLembrete(): void {
+    this.lembrete.uid = this.authService.getUserId();
     this.firebaseService.create(this.lembrete).then(() => {
       console.log('Lembrete criado!');
     });
-  }
-
-  getUid(user) {
-    this.AuthService.getUid(user);
   }
 
   novoLembrete(): void {

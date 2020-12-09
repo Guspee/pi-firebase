@@ -5,6 +5,7 @@ import {
   AngularFirestoreCollection,
 } from '@angular/fire/firestore';
 import { Lembrete } from '../lembrete.model';
+import { AuthService } from '../services/login.service';
 
 @Injectable({
   providedIn: 'root',
@@ -14,12 +15,18 @@ export class FirebaseService {
 
   lembreteRef: AngularFirestoreCollection<Lembrete> = null;
 
-  constructor(private db: AngularFirestore) {
+  constructor(public db: AngularFirestore, public authService: AuthService) {
     this.lembreteRef = db.collection(this.dbPath);
   }
 
   getAll(): AngularFirestoreCollection<Lembrete> {
     return this.lembreteRef;
+  }
+
+  getByUid(): AngularFirestoreCollection<Lembrete> {
+    return this.db.collection('/lembretes', (ref) =>
+      ref.where('uid', '==', this.authService.getUserId())
+    );
   }
 
   create(lembrete: Lembrete): any {

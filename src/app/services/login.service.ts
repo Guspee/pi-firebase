@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
   userData: any; // Save logged in user data
+  userId: string;
 
   constructor(
     public afs: AngularFirestore, // Inject Firestore service
@@ -79,7 +80,7 @@ export class AuthService {
   // Returns true when user is looged in and email is verified
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user'));
-    return user !== null && user.emailVerified !== false ? true : false;
+    return user !== null ? true : false;
   }
 
   AuthLogin(provider) {
@@ -100,6 +101,7 @@ export class AuthService {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(
       `users/${user.uid}`
     );
+    this.userId = user.uid;
     const userData: User = {
       uid: user.uid,
       email: user.email,
@@ -109,18 +111,15 @@ export class AuthService {
     });
   }
 
-  getUid(user) {
-    const uid: AngularFirestoreDocument<any> = this.afs.doc(
-      `users/${user.uid}`
-    );
-    return uid;
+  getUserId() {
+    return this.userId;
   }
 
   // Sign out
   SignOut() {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('user');
-      this.router.navigate(['sign-in']);
+      this.router.navigate(['']);
     });
   }
 }

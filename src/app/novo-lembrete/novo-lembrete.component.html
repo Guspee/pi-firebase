@@ -1,20 +1,23 @@
 <div class="submit-form">
     <div>
         <div class="form-group">
-            <label for="title">Digite o seu lembrete:</label>
-            <input type="text" class="form-control" id="title" required [(ngModel)]="lembrete.lembrete"
-                name="lembrete" />
+
+            <mat-form-field appearance="fill">
+                <mat-label>Digite o seu lembrete:</mat-label>
+                <input matInput color="accent" type="text" class="form-control" id="title" required
+                    [(ngModel)]="lembrete.lembrete" required>
+            </mat-form-field>
         </div>
 
         <div class="form-group">
 
-            <mat-form-field appearance="fill">
+            <mat-form-field color="accent" appearance="fill">
                 <mat-label>Escolha a data:</mat-label>
-                <input matInput class="form-control" required [(ngModel)]="lembrete.dataLemb" [matDatepicker]="picker">
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
+                <input matInput class="form-control" required [(ngModel)]="lembrete.dataLemb" [matDatepicker]="picker1">
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
             </mat-form-field>
         </div>
-        <button (click)="salvarLembrete()" routerLink="/lembretes" class="btn btn-success">Salvar</button>
+        <button mat-raised-button color="accent" (click)="salvarLembrete()" routerLink="/lembretes">Salvar</button>
     </div>
 </div>
