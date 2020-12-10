@@ -20,8 +20,8 @@
             </div>
 
             <div class="formGroup">
-                <button mat-raised-button color="accent"> <input class="btn btnPrimary" value="Sign Up"
-                        (click)="authService.SignUp(userEmail.value, userPwd.value)"></button>
+                <button mat-raised-button color="accent" class="botao"
+                    (click)="authService.SignUp(userEmail.value, userPwd.value)">Criar e Entrar</button>
             </div>
 
             <div class="formGroup">
@@ -32,8 +32,7 @@
 
         <div class="redirectToLogin">
             <span class="escrito">Já possui uma conta? <button mat-raised-button color="accent" class="redirect"
-                    routerLink="/sign-in">Entre
-                    agora</button></span>
+                    routerLink="/sign-in">Entre agora</button></span>
         </div>
     </div>
 

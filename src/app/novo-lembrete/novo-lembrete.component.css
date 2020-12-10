@@ -3,6 +3,11 @@
   margin: auto;
 }
 
-.form-group {
+.formControl {
   margin: auto;
+  color: white;
+}
+
+.lembrete {
+  width: 244px;
 }

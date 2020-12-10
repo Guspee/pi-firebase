@@ -35,14 +35,13 @@ export class AuthService {
     });
   }
 
-  // Sign in with email/password
   SignIn(email, password) {
     return this.afAuth
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
         this.ngZone.run(() => {
           this.router.navigate(['lembretes']);
-          console.log('aloooooo');
+          console.log('login feito');
         });
         this.SetUserData(result.user);
       })
@@ -51,29 +50,17 @@ export class AuthService {
       });
   }
 
-  // Sign up with email/password
   SignUp(email, password) {
     return this.afAuth
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
         this.ngZone.run(() => {
-          this.router.navigate(['sign-in']);
+          this.router.navigate(['lembretes']);
         });
         this.SetUserData(result.user);
       })
       .catch((error) => {
         window.alert(error.message);
-      });
-  }
-
-  ForgotPassword(passwordResetEmail) {
-    return this.afAuth
-      .sendPasswordResetEmail(passwordResetEmail)
-      .then(() => {
-        window.alert('Password reset email sent, check your inbox.');
-      })
-      .catch((error) => {
-        window.alert(error);
       });
   }
 

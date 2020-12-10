@@ -1,11 +1,21 @@
 <div class="list row">
     <div class="col-md-6">
         <h4 class="escrito">Lista de Lembretes</h4>
-        <ul class="list-group">
+        <!-- <ul class="list-group">
             <li class="list-group-item list-group-item-action list-group-item-dark"
                 *ngFor="let lembrete of lembretes; let i = index" [class.active]="i == currentIndex"
                 (click)="setActiveLembrete(lembrete, i)">
                 {{ lembrete.lembrete }} <br> Data: {{ lembrete.dataLemb.toDate() | date:'dd/MM/yyyy'}}
+            </li>
+        </ul> -->
+        <ul class="list-group">
+            <li>
+                <mat-selection-list #shoes [multiple]="false">
+                    <mat-list-option *ngFor="let lembrete of lembretes; let i = index"
+                        [class.active]="i == currentIndex" (click)="setActiveLembrete(lembrete, i)" [value]="lembrete">
+                        {{lembrete.lembrete}} <br> Data: {{ lembrete.dataLemb.toDate() | date:'dd/MM/yyyy'}}
+                    </mat-list-option>
+                </mat-selection-list>
             </li>
         </ul>
     </div>

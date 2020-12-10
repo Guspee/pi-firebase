@@ -43,7 +43,6 @@ export class ListaLembretesComponent implements OnInit {
   }
 
   retrieveLembretesUid(): void {
-    debugger;
     this.firebaseService
       .getByUid()
       .snapshotChanges()
@@ -56,7 +55,6 @@ export class ListaLembretesComponent implements OnInit {
         )
       )
       .subscribe((data) => {
-        debugger;
         this.lembretes = data;
       });
   }
