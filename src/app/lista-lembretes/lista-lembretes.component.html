@@ -10,7 +10,7 @@
         </ul> -->
         <ul class="list-group">
             <li>
-                <mat-selection-list #shoes [multiple]="false">
+                <mat-selection-list class="lista" #shoes [multiple]="false">
                     <mat-list-option *ngFor="let lembrete of lembretes; let i = index"
                         [class.active]="i == currentIndex" (click)="setActiveLembrete(lembrete, i)" [value]="lembrete">
                         {{lembrete.lembrete}} <br> Data: {{ lembrete.dataLemb.toDate() | date:'dd/MM/yyyy'}}
